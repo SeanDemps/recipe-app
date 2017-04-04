@@ -2,14 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { RecipesViewComponent } from './components/recipes-view/recipes-view.component';
 import { StarComponent } from './components/star/star.component';
-import { SearchComponent } from './components/search/search.component';
 import { StarredService } from './services/starred.service';
 import { RecipesService } from './services/recipes.service';
 import { HttpWrapperService } from './services/http-wrapper.service';
@@ -21,8 +20,7 @@ import { RecipesResolver, RecipeDetailResolver, StarredRecipeResolver } from './
     RecipeDetailsComponent,
     RecipesListComponent,
     RecipesViewComponent,
-    StarComponent,
-    SearchComponent
+    StarComponent
   ],
   imports: [
     BrowserModule,
@@ -84,12 +82,22 @@ import { RecipesResolver, RecipeDetailResolver, StarredRecipeResolver } from './
     RecipeDetailResolver,
     {
       provide: 'starState',
-      useValue: () => 'starred-recipes'
+      useValue: starredState
     }, {
       provide: 'allState',
-      useValue: () => 'recipes-view'
+      useValue: allState
     }
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
+export function starredState(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  return 'starred-recipes';
+}
+
+export function allState(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  return 'recipes-view';
+}
+

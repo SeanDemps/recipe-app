@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start-server": "nodemon server/app.js"
+    "start-server:dev": "nodemon server/app.js",
+    "start-server": "node server/app.js"
   },
   "private": true,
   "dependencies": {

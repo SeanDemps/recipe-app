@@ -1,0 +1,8 @@
+<div class="main-content">
+    <recipes-list [recipes]="recipesList" [onSelectedRecipe]="setCurrentRecipe.bind(this)" [assetLimitPerPage]="10"></recipes-list>
+    <recipe-details *ngIf="!!currentRecipe" [recipe]="currentRecipe"></recipe-details>
+</div>
+<div class="page-navigation">
+    <div class="back-button" (click)='goToPrevPage()' *ngIf="pageIndex > 0">back</div>
+    <div class="forward-button" (click)='goToNextPage()' *ngIf="showForwardArrow">forward</div>
+</div>

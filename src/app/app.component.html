@@ -1,3 +1,8 @@
 <h1>
   {{title}}
 </h1>
+
+<a routerLink='/recipes-view' *ngIf="this.onStarredState">all recipes</a>
+<a routerLink='/starred-recipes/0' *ngIf="!this.onStarredState">starred recipes</a>
+
+<router-outlet></router-outlet>

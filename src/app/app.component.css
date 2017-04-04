@@ -1,0 +1,16 @@
+h1 {
+    color: red;
+    margin-left: 40px; 
+}
+
+recipes-view {
+    position: relative;
+}
+
+a {
+    color: black;
+    padding: 5px;
+    background-color: purple; 
+    text-decoration: none;
+    margin-left: 5%;
+}

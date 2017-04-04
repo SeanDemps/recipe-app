@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let recipe of recipes | slice:0:10;" [class.selected]="currentRecipe?.id === recipe?.id || currentId === recipe?.id"><div (click)="onSelect(recipe)">{{recipe.name}}</div></li>
+</ul>
+<div class="back-arrow" *ngIf="showBackArrow" (click)="getPrevPage()"></div>
+<div class="forward-arrow" *ngIf="showForwardArrow" (click)="getNextPage()"></div>

@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>{{recipe.name}}</h1>
+  <h2>Cooking Time: {{recipe.cookingTimeInMins}} Minutes</h2>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+  </ul>
+  <star [recipe]="recipe"></star>
+</div>
